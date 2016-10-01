@@ -41,7 +41,6 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
         self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
         
         //TableView with 2 records at starting
-        //constraintTableViewHeight.constant = 275
         self.preferredContentSize = CGSize(width: 0, height: SIZE_EXPANDED)
     }
     
@@ -68,17 +67,10 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
         //Show more/less button event
         if (activeDisplayMode == NCWidgetDisplayMode.compact) {
-//            constraintTableViewHeight.constant = 110
             self.preferredContentSize = CGSize(width: 0, height: SIZE_COMPACT)
         }else {
-//            if arrayNews.count >= 5 {
-//                constraintTableViewHeight.constant = 275
-//            }else {
-//                constraintTableViewHeight.constant = CGFloat(arrayNews.count * 55)
-//            }
             self.preferredContentSize = CGSize(width: 0, height: SIZE_EXPANDED)
         }
-        //self.preferredContentSize = CGSize(width: 0, height: constraintTableViewHeight.constant)
     }
     
     //MARK: - Parse New Feeds
@@ -143,8 +135,6 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
         if arrayNews.count > 0 {
             self.tableViewNews.reloadData()
         }
-        
-        //print(arrayNews)
     }
     
     
@@ -183,8 +173,6 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDataS
         self.extensionContext?.open(URL(string: strLink as! String)!, completionHandler: { (isFinished) in
             print("Link Open")
         })
-        
-        //UIApplication.shared.openURL(URL(string: strLink as! String)!)
     }
     
 }
